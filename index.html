@@ -217,6 +217,9 @@
     cursor: pointer;
     text-align: left;
     color: var(--text);
+    min-height: 64px;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
   }
 
   .card-icon-wrap {
@@ -448,12 +451,51 @@
   .card:nth-child(8) { animation-delay: 0.40s; }
 
   @media (max-width: 600px) {
-    .hero-content { padding: 44px 24px 80px; }
-    .container { padding: 0 20px 60px; }
-    .card-inner { padding-left: 24px; }
-    .stats-bar { gap: 0; }
-    .stat-num { font-size: 22px; }
-    .feature-card { flex-direction: column; text-align: center; gap: 12px; }
+    /* Hero tightened for small screens */
+    .hero-content { padding: 36px 20px 72px; }
+    .hero h1 { font-size: 48px; }
+    .sun { width: 180px; height: 180px; top: -40px; right: -40px; }
+
+    /* Container full-width with minimal side padding */
+    .container { padding: 0 12px 60px; }
+
+    /* Section heading smaller */
+    .section-head { margin: 28px 0 16px; }
+    .section-head h2 { font-size: 22px; }
+
+    /* Cards: reduce padding, make tap targets bigger */
+    .cards { gap: 8px; }
+    .card { border-radius: 14px; }
+    .card-trigger { padding: 18px 16px; gap: 12px; }
+
+    /* Icon slightly smaller */
+    .card-icon-wrap { width: 40px; height: 40px; border-radius: 10px; }
+
+    /* Title slightly smaller */
+    .card-title { font-size: 15px; }
+
+    /* Body content: flush left, no awkward indent */
+    .card-inner { padding: 8px 16px 20px 16px; font-size: 15px; line-height: 1.7; }
+
+    /* Pills stack and go full width on mobile */
+    .pill { width: 100%; }
+    .pill-label { min-width: 72px; }
+
+    /* Time grid stays 2-col but with smaller text */
+    .time-grid { gap: 8px; }
+    .time-box { padding: 10px 12px; }
+    .t-val { font-size: 22px; }
+
+    /* Footer more compact */
+    .footer { padding: 36px 20px 48px; }
+    .footer-name { font-size: 24px; }
+  }
+
+  /* Extra small phones */
+  @media (max-width: 380px) {
+    .hero h1 { font-size: 40px; }
+    .card-trigger { padding: 16px 14px; }
+    .card-title { font-size: 14px; }
   }
 </style>
 </head>
