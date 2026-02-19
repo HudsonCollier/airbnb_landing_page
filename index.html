@@ -3,189 +3,618 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Guest Instructions | Sunnyside Retreat</title>
-
+<title>Guest Guide | Sunnyside Retreat</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background: #e6e6e6;
-}
-
-.wrapper {
-  max-width: 850px;
-  margin: 60px auto;
-  background: white;
-  padding: 40px 60px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.06);
-}
-
-h1 {
-  text-align: center;
-  margin-bottom: 40px;
-  font-weight: 600;
-}
-
-hr {
-  border: none;
-  border-top: 1px solid #ddd;
-  margin: 25px 0;
-}
-
-.item {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
-
-.check {
-  width: 45px;
-  height: 45px;
-  border: 3px solid black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 26px;
-  font-weight: bold;
-  margin-right: 25px;
-}
-
-.link {
-  font-size: 22px;
-  color: #1f6fa9;
-  text-decoration: underline;
-  font-weight: 600;
-}
-
-.content {
-  display: none;
-  margin-left: 70px;
-  margin-top: 15px;
-  color: #444;
-  line-height: 1.6;
-  font-size: 15px;
-}
-
-@media (max-width: 700px) {
-  .wrapper {
-    padding: 30px 25px;
-    margin: 20px;
+  :root {
+    --sky: #dff0f7;
+    --ocean: #2a7fa8;
+    --ocean-light: #4aa3cc;
+    --sand: #f5ede0;
+    --sand-dark: #e8d5bc;
+    --white: #ffffff;
+    --text: #1a2e3a;
+    --muted: #7a9aaa;
+    --pool: #5bbfdf;
   }
 
-  .link {
-    font-size: 18px;
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--sky);
+    font-family: 'Outfit', sans-serif;
+    color: var(--text);
+    min-height: 100vh;
   }
-}
+
+  /* Hero */
+  .hero {
+    background: var(--ocean);
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+  }
+
+  /* Sun circle decoration */
+  .sun {
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,220,80,0.5) 0%, rgba(255,180,50,0.15) 50%, transparent 75%);
+  }
+
+  /* Wave lines */
+  .wave-lines {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .hero-content {
+    position: relative;
+    padding: 56px 48px 100px;
+    z-index: 1;
+  }
+
+  .property-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 100px;
+    padding: 6px 14px 6px 8px;
+    margin-bottom: 24px;
+  }
+
+  .property-tag .dot {
+    width: 8px;
+    height: 8px;
+    background: #7fffb0;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.3); }
+  }
+
+  .property-tag span {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.9);
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 7vw, 84px);
+    font-weight: 500;
+    color: white;
+    line-height: 1.0;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: #ffe066;
+  }
+
+  .hero-location {
+    margin-top: 12px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.65);
+    font-weight: 300;
+    letter-spacing: 0.5px;
+  }
+
+  .hero-location strong {
+    color: rgba(255,255,255,0.9);
+    font-weight: 500;
+  }
+
+  /* Stats bar */
+  .stats-bar {
+    display: flex;
+    gap: 0;
+    margin-top: 36px;
+  }
+
+  .stat {
+    flex: 1;
+    text-align: center;
+    padding: 12px 0;
+    border-right: 1px solid rgba(255,255,255,0.15);
+  }
+  .stat:last-child { border-right: none; }
+
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: white;
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-top: 4px;
+  }
+
+  /* SVG wave between hero and content */
+  .wave-divider {
+    display: block;
+    margin-top: -2px;
+    background: var(--sky);
+  }
+
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 36px 80px;
+  }
+
+  /* Section heading */
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 48px 0 28px;
+  }
+
+  .section-head h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--ocean);
+  }
+
+  .section-head::before,
+  .section-head::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--sand-dark);
+  }
+
+  /* Cards grid */
+  .cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .card {
+    background: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(42,127,168,0.08);
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+
+  .card:hover {
+    box-shadow: 0 6px 24px rgba(42,127,168,0.14);
+    transform: translateY(-1px);
+  }
+
+  .card-trigger {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 20px 24px;
+    cursor: pointer;
+    text-align: left;
+    color: var(--text);
+  }
+
+  .card-icon-wrap {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+    background: var(--sky);
+    transition: background 0.2s;
+  }
+
+  .card.open .card-icon-wrap {
+    background: linear-gradient(135deg, var(--ocean-light), var(--ocean));
+  }
+
+  .card-title {
+    font-size: 15px;
+    font-weight: 600;
+    flex: 1;
+    letter-spacing: 0.1px;
+  }
+
+  .card-chevron {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--sky);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: var(--muted);
+    transition: transform 0.3s ease, background 0.2s, color 0.2s;
+    flex-shrink: 0;
+  }
+
+  .card.open .card-chevron {
+    transform: rotate(180deg);
+    background: var(--ocean);
+    color: white;
+  }
+
+  .card-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card.open .card-body {
+    max-height: 400px;
+  }
+
+  .card-inner {
+    padding: 4px 24px 24px 86px;
+    font-size: 14px;
+    line-height: 1.85;
+    color: #4a6878;
+    font-weight: 300;
+    border-top: 1px solid #f0f4f6;
+  }
+
+  .card-inner a {
+    color: var(--ocean);
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(42,127,168,0.3);
+    transition: border-color 0.2s;
+  }
+
+  .card-inner a:hover { border-bottom-color: var(--ocean); }
+
+  /* Highlight pills */
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--sky);
+    border: 1px solid #c8e4f0;
+    border-radius: 10px;
+    padding: 10px 16px;
+    margin: 6px 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: 0.5px;
+    width: fit-content;
+  }
+
+  .pill-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ocean);
+    border-right: 1px solid #c8e4f0;
+    padding-right: 10px;
+    margin-right: 2px;
+  }
+
+  /* Time display */
+  .time-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 4px 0;
+  }
+
+  .time-box {
+    background: var(--sky);
+    border-radius: 10px;
+    padding: 12px 16px;
+    text-align: center;
+  }
+
+  .time-box .t-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+
+  .time-box .t-val {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--ocean);
+    line-height: 1;
+  }
+
+  /* Pool highlight feature card */
+  .feature-card {
+    background: linear-gradient(135deg, var(--ocean), #1a5e80);
+    border-radius: 16px;
+    padding: 28px 32px;
+    color: white;
+    margin: 40px 0 0;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .feature-card::before {
+    content: '🌊';
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 80px;
+    opacity: 0.15;
+  }
+
+  .feature-card-text h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+
+  .feature-card-text p {
+    font-size: 13px;
+    opacity: 0.75;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  .feature-emoji {
+    font-size: 40px;
+    flex-shrink: 0;
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 48px 32px 60px;
+    border-top: 1px solid var(--sand-dark);
+    margin-top: 20px;
+  }
+
+  .footer p {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+    font-weight: 300;
+  }
+
+  .footer-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--ocean);
+    font-style: italic;
+  }
+
+  .footer-loc {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 4px;
+    letter-spacing: 1px;
+  }
+
+  /* Stagger animate cards on load */
+  .card {
+    opacity: 0;
+    transform: translateY(16px);
+    animation: fadeUp 0.4s forwards;
+  }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .card:nth-child(1) { animation-delay: 0.05s; }
+  .card:nth-child(2) { animation-delay: 0.10s; }
+  .card:nth-child(3) { animation-delay: 0.15s; }
+  .card:nth-child(4) { animation-delay: 0.20s; }
+  .card:nth-child(5) { animation-delay: 0.25s; }
+  .card:nth-child(6) { animation-delay: 0.30s; }
+  .card:nth-child(7) { animation-delay: 0.35s; }
+  .card:nth-child(8) { animation-delay: 0.40s; }
+
+  @media (max-width: 600px) {
+    .hero-content { padding: 44px 24px 80px; }
+    .container { padding: 0 20px 60px; }
+    .card-inner { padding-left: 24px; }
+    .stats-bar { gap: 0; }
+    .stat-num { font-size: 22px; }
+    .feature-card { flex-direction: column; text-align: center; gap: 12px; }
+  }
 </style>
 </head>
-
 <body>
 
-<div class="wrapper">
-  <h1>Sunnyside Retreat</h1>
+<!-- HERO -->
+<div class="hero">
+  <div class="sun"></div>
+  <div class="hero-content">
+    <div class="property-tag">
+      <span class="dot"></span>
+      <span>Panama City Beach, FL</span>
+    </div>
+    <h1>Sunnyside <em>Retreat</em></h1>
+    <p class="hero-location">Entire home · Hosted by <strong>Andy</strong></p>
 
-  <!-- Check In -->
-  <div class="item" onclick="toggle(this)">
-    <div class="check">✓</div>
-    <div class="link">Check-In and Check-Out</div>
-  </div>
-  <div class="content">
-    Check-in: 4:00 PM<br>
-    Check-out: 10:00 AM<br>
-    Virtual self check-in. Guest must be 25+.
-  </div>
-  <hr>
 
-  <!-- Door Access -->
-  <div class="item" onclick="toggle(this)">
-    <div class="check">✓</div>
-    <div class="link">Door Access</div>
   </div>
-  <div class="content">
-    Your door code is 6*404981
-The door will lock automatically after being shut
-  </div>
-  <hr>
 
-  <!-- Contacts -->
-  <div class="item" onclick="toggle(this)">
-    <div class="check">✓</div>
-    <div class="link">Contacts</div>
-  </div>
-  <div class="content">
-    Host support will be provided via Airbnb messaging.<br>
-    Emergency: 911.
-  </div>
-  <hr>
-
-  <!-- Parking -->
-  <div class="item" onclick="toggle(this)">
-    <div class="check">✓</div>
-    <div class="link">Parking Instructions</div>
-  </div>
-  <div class="content">
-    Onsite parking available for up to 4 vehicles.<br>
-    Please do not block neighboring driveways.
-  </div>
-  <hr>
-
-  <!-- WIFI -->
-  <div class="item" onclick="toggle(this)">
-    <div class="check">✓</div>
-    <div class="link">WIFI Instructions</div>
-  </div>
-  <div class="content">
-    Wifi Name: Sunnyside Retreat<br>
-    Wifi Password: 314Sunnysideretreat! <br> 
-    You’ll find a Wi-Fi QR code posted in the entryway hallway. Simply scan it with your phone to connect instantly</div>
-  <hr>
-
- <!-- Thermostat -->
-<div class="item" onclick="toggle(this)">
-  <div class="check">✓</div>
-  <div class="link">Thermostat Instructions</div>
+  <!-- Wave SVG -->
+  <svg class="wave-divider" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z" fill="#dff0f7"/>
+  </svg>
 </div>
-<div class="content">
-  Please keep thermostat between 68-74°F.<br>
-  Do not set below 65°F to prevent system freeze.<br><br>
 
-  Watch setup video:<br>
-  <a href="https://youtu.be/EwSBpgAR9PM" target="_blank">
-    View Thermostat Tutorial
-  </a>
+<div class="container">
+
+  <div class="section-head">
+    <h2>Your House Guide</h2>
+  </div>
+
+  <div class="cards">
+
+    <!-- Check In -->
+    <div class="card">
+      <button class="card-trigger" onclick="toggle(this.closest('.card'))">
+        <div class="card-icon-wrap">🗓</div>
+        <span class="card-title">Check-In &amp; Check-Out</span>
+        <span class="card-chevron">▾</span>
+      </button>
+      <div class="card-body"><div class="card-inner">
+        <div class="time-grid">
+          <div class="time-box">
+            <div class="t-label">Check-In</div>
+            <div class="t-val">4:00 PM</div>
+          </div>
+          <div class="time-box">
+            <div class="t-label">Check-Out</div>
+            <div class="t-val">10:00 AM</div>
+          </div>
+        </div>
+        <br>Virtual self check-in available. Guests must be 25+.
+      </div></div>
+    </div>
+
+    <!-- Door Access -->
+    <div class="card">
+      <button class="card-trigger" onclick="toggle(this.closest('.card'))">
+        <div class="card-icon-wrap">🔑</div>
+        <span class="card-title">Door Access</span>
+        <span class="card-chevron">▾</span>
+      </button>
+      <div class="card-body"><div class="card-inner">
+        Your door code:<br><br>
+        <div class="pill"><span class="pill-label">Code</span>6 · 404981</div><br>
+        The door locks automatically when shut.
+      </div></div>
+    </div>
+
+    <!-- Contacts -->
+    <div class="card">
+      <button class="card-trigger" onclick="toggle(this.closest('.card'))">
+        <div class="card-icon-wrap">💬</div>
+        <span class="card-title">Contacts</span>
+        <span class="card-chevron">▾</span>
+      </button>
+      <div class="card-body"><div class="card-inner">
+        Host support via <strong>Airbnb messaging</strong>.<br>
+        Emergency: <strong>911</strong>
+      </div></div>
+    </div>
+
+    <!-- Parking -->
+    <div class="card">
+      <button class="card-trigger" onclick="toggle(this.closest('.card'))">
+        <div class="card-icon-wrap">🚗</div>
+        <span class="card-title">Parking</span>
+        <span class="card-chevron">▾</span>
+      </button>
+      <div class="card-body"><div class="card-inner">
+        Onsite parking for up to <strong>4 vehicles</strong>.<br>
+        Please do not block neighboring driveways.
+      </div></div>
+    </div>
+
+    <!-- WiFi -->
+    <div class="card">
+      <button class="card-trigger" onclick="toggle(this.closest('.card'))">
+        <div class="card-icon-wrap">📶</div>
+        <span class="card-title">Wi-Fi</span>
+        <span class="card-chevron">▾</span>
+      </button>
+      <div class="card-body"><div class="card-inner">
+        <div class="pill"><span class="pill-label">Network</span>Sunnyside Retreat</div>
+        <div class="pill"><span class="pill-label">Password</span>314Sunnysideretreat!</div>
+        <br>A QR code is posted in the entryway — scan to connect instantly.
+      </div></div>
+    </div>
+
+    <!-- Thermostat -->
+    <div class="card">
+      <button class="card-trigger" onclick="toggle(this.closest('.card'))">
+        <div class="card-icon-wrap">🌡️</div>
+        <span class="card-title">Thermostat</span>
+        <span class="card-chevron">▾</span>
+      </button>
+      <div class="card-body"><div class="card-inner">
+        Please keep between <strong>68–74°F</strong>.<br>
+        Do not set below 65°F — prevents system freeze.<br><br>
+        <a href="https://youtu.be/EwSBpgAR9PM" target="_blank">▶ Watch thermostat tutorial</a>
+      </div></div>
+    </div>
+
+    <!-- Housekeeping -->
+    <div class="card">
+      <button class="card-trigger" onclick="toggle(this.closest('.card'))">
+        <div class="card-icon-wrap">🧹</div>
+        <span class="card-title">Housekeeping</span>
+        <span class="card-chevron">▾</span>
+      </button>
+      <div class="card-body"><div class="card-inner">
+        Place trash in the provided bins.<br>
+        Leave used towels in the bathrooms.<br>
+        Lock all doors upon departure.
+      </div></div>
+    </div>
+
+    <!-- TV -->
+    <div class="card">
+      <button class="card-trigger" onclick="toggle(this.closest('.card'))">
+        <div class="card-icon-wrap">📺</div>
+        <span class="card-title">TV &amp; Streaming</span>
+        <span class="card-chevron">▾</span>
+      </button>
+      <div class="card-body"><div class="card-inner">
+        Smart TVs in all bedrooms and living areas.<br>
+        Log into personal accounts and <strong>log out before leaving</strong>.
+      </div></div>
+    </div>
+
+  </div><!-- /.cards -->
 </div>
-<hr>
 
-  <!-- Housekeeping -->
-  <div class="item" onclick="toggle(this)">
-    <div class="check">✓</div>
-    <div class="link">Housekeeping</div>
-  </div>
-  <div class="content">
-    Please place trash in provided bins.<br>
-    Leave used towels in bathrooms.<br>
-    Lock all doors upon departure.
-  </div>
-  <hr>
-
-  <!-- TV -->
-  <div class="item" onclick="toggle(this)">
-    <div class="check">✓</div>
-    <div class="link">TV Instructions</div>
-  </div>
-  <div class="content">
-    Smart TVs in all bedrooms and living areas.<br>
-    Log into personal streaming accounts and remember to log out.
-  </div>
-
+<div class="footer">
+  <p>We hope you have an amazing stay</p>
+  <div class="footer-name">Sunnyside Retreat</div>
+  <div class="footer-loc">☀ Panama City Beach, Florida</div>
 </div>
 
 <script>
-function toggle(element) {
-  const content = element.nextElementSibling;
-  content.style.display = content.style.display === "block" ? "none" : "block";
+function toggle(card) {
+  card.classList.toggle('open');
 }
 </script>
-
 </body>
 </html>
