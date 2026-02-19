@@ -251,7 +251,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 12px;
     color: var(--muted);
     transition: transform 0.3s ease, background 0.2s, color 0.2s;
     flex-shrink: 0;
@@ -262,6 +261,9 @@
     background: var(--ocean);
     color: white;
   }
+
+  .card-icon-wrap { color: var(--muted); }
+  .card.open .card-icon-wrap { color: white; }
 
   .card-body {
     max-height: 0;
@@ -488,9 +490,13 @@
     <!-- Check In -->
     <div class="card">
       <button class="card-trigger" onclick="toggle(this.closest('.card'))">
-        <div class="card-icon-wrap">🗓</div>
+        <div class="card-icon-wrap">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
         <span class="card-title">Check-In &amp; Check-Out</span>
-        <span class="card-chevron">▾</span>
+        <span class="card-chevron">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </span>
       </button>
       <div class="card-body"><div class="card-inner">
         <div class="time-grid">
@@ -510,9 +516,13 @@
     <!-- Door Access -->
     <div class="card">
       <button class="card-trigger" onclick="toggle(this.closest('.card'))">
-        <div class="card-icon-wrap">🔑</div>
+        <div class="card-icon-wrap">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M2 12C2 12 5 5 12 5s10 7 10 7-3 7-10 7S2 12 2 12z"/><line x1="18" y1="18" x2="21" y2="21"/></svg>
+        </div>
         <span class="card-title">Door Access</span>
-        <span class="card-chevron">▾</span>
+        <span class="card-chevron">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </span>
       </button>
       <div class="card-body"><div class="card-inner">
         Your door code:<br><br>
@@ -524,9 +534,13 @@
     <!-- Contacts -->
     <div class="card">
       <button class="card-trigger" onclick="toggle(this.closest('.card'))">
-        <div class="card-icon-wrap">💬</div>
+        <div class="card-icon-wrap">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
         <span class="card-title">Contacts</span>
-        <span class="card-chevron">▾</span>
+        <span class="card-chevron">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </span>
       </button>
       <div class="card-body"><div class="card-inner">
         Host support via <strong>Airbnb messaging</strong>.<br>
@@ -537,9 +551,13 @@
     <!-- Parking -->
     <div class="card">
       <button class="card-trigger" onclick="toggle(this.closest('.card'))">
-        <div class="card-icon-wrap">🚗</div>
+        <div class="card-icon-wrap">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="13" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><circle cx="7" cy="17" r="1.5" fill="currentColor" stroke="none"/><circle cx="17" cy="17" r="1.5" fill="currentColor" stroke="none"/></svg>
+        </div>
         <span class="card-title">Parking</span>
-        <span class="card-chevron">▾</span>
+        <span class="card-chevron">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </span>
       </button>
       <div class="card-body"><div class="card-inner">
         Onsite parking for up to <strong>4 vehicles</strong>.<br>
@@ -550,9 +568,13 @@
     <!-- WiFi -->
     <div class="card">
       <button class="card-trigger" onclick="toggle(this.closest('.card'))">
-        <div class="card-icon-wrap">📶</div>
+        <div class="card-icon-wrap">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1" fill="currentColor" stroke="none"/></svg>
+        </div>
         <span class="card-title">Wi-Fi</span>
-        <span class="card-chevron">▾</span>
+        <span class="card-chevron">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </span>
       </button>
       <div class="card-body"><div class="card-inner">
         <div class="pill"><span class="pill-label">Network</span>Sunnyside Retreat</div>
@@ -564,9 +586,13 @@
     <!-- Thermostat -->
     <div class="card">
       <button class="card-trigger" onclick="toggle(this.closest('.card'))">
-        <div class="card-icon-wrap">🌡️</div>
+        <div class="card-icon-wrap">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg>
+        </div>
         <span class="card-title">Thermostat</span>
-        <span class="card-chevron">▾</span>
+        <span class="card-chevron">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </span>
       </button>
       <div class="card-body"><div class="card-inner">
         Please keep between <strong>68–74°F</strong>.<br>
@@ -578,9 +604,13 @@
     <!-- Housekeeping -->
     <div class="card">
       <button class="card-trigger" onclick="toggle(this.closest('.card'))">
-        <div class="card-icon-wrap">🧹</div>
+        <div class="card-icon-wrap">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
         <span class="card-title">Housekeeping</span>
-        <span class="card-chevron">▾</span>
+        <span class="card-chevron">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </span>
       </button>
       <div class="card-body"><div class="card-inner">
         Place trash in the provided bins.<br>
@@ -592,9 +622,13 @@
     <!-- TV -->
     <div class="card">
       <button class="card-trigger" onclick="toggle(this.closest('.card'))">
-        <div class="card-icon-wrap">📺</div>
+        <div class="card-icon-wrap">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="13" rx="2"/><polyline points="17 2 12 7 7 2"/></svg>
+        </div>
         <span class="card-title">TV &amp; Streaming</span>
-        <span class="card-chevron">▾</span>
+        <span class="card-chevron">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </span>
       </button>
       <div class="card-body"><div class="card-inner">
         Smart TVs in all bedrooms and living areas.<br>
