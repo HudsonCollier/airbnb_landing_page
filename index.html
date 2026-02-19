@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guest Instructions | Heated Pool – Walk to Beach</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #e6e6e6;
+}
+
+.wrapper {
+  max-width: 850px;
+  margin: 60px auto;
+  background: white;
+  padding: 40px 60px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: 600;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 25px 0;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.check {
+  width: 45px;
+  height: 45px;
+  border: 3px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 26px;
+  font-weight: bold;
+  margin-right: 25px;
+}
+
+.link {
+  font-size: 22px;
+  color: #1f6fa9;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.content {
+  display: none;
+  margin-left: 70px;
+  margin-top: 15px;
+  color: #444;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+@media (max-width: 700px) {
+  .wrapper {
+    padding: 30px 25px;
+    margin: 20px;
+  }
+
+  .link {
+    font-size: 18px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+  <h1>PCB AirBnB</h1>
+
+  <!-- Check In -->
+  <div class="item" onclick="toggle(this)">
+    <div class="check">✓</div>
+    <div class="link">Check-In and Check-Out</div>
+  </div>
+  <div class="content">
+    Check-in: 4:00 PM<br>
+    Check-out: 10:00 AM<br>
+    Virtual self check-in. Guest must be 25+.
+  </div>
+  <hr>
+
+  <!-- Door Access -->
+  <div class="item" onclick="toggle(this)">
+    <div class="check">✓</div>
+    <div class="link">Door Access</div>
+  </div>
+  <div class="content">
+    Entry details will be provided after completing pre-arrival verification via Happy Guest.
+  </div>
+  <hr>
+
+  <!-- Contacts -->
+  <div class="item" onclick="toggle(this)">
+    <div class="check">✓</div>
+    <div class="link">Contacts</div>
+  </div>
+  <div class="content">
+    Host support will be provided via Airbnb messaging.<br>
+    Emergency: 911.
+  </div>
+  <hr>
+
+  <!-- Parking -->
+  <div class="item" onclick="toggle(this)">
+    <div class="check">✓</div>
+    <div class="link">Parking Instructions</div>
+  </div>
+  <div class="content">
+    Onsite parking available for up to 4 vehicles.<br>
+    Please do not block neighboring driveways.
+  </div>
+  <hr>
+
+  <!-- WIFI -->
+  <div class="item" onclick="toggle(this)">
+    <div class="check">✓</div>
+    <div class="link">WIFI Instructions</div>
+  </div>
+  <div class="content">
+    Network: Provided upon check-in.<br>
+    Password: Included in arrival instructions.
+  </div>
+  <hr>
+
+  <!-- Thermostat -->
+  <div class="item" onclick="toggle(this)">
+    <div class="check">✓</div>
+    <div class="link">Thermostat Instructions</div>
+  </div>
+  <div class="content">
+    Please keep thermostat between 68-74°F.<br>
+    Do not set below 65°F to prevent system freeze.
+  </div>
+  <hr>
+
+  <!-- Housekeeping -->
+  <div class="item" onclick="toggle(this)">
+    <div class="check">✓</div>
+    <div class="link">Housekeeping</div>
+  </div>
+  <div class="content">
+    Please place trash in provided bins.<br>
+    Leave used towels in bathrooms.<br>
+    Lock all doors upon departure.
+  </div>
+  <hr>
+
+  <!-- TV -->
+  <div class="item" onclick="toggle(this)">
+    <div class="check">✓</div>
+    <div class="link">TV Instructions</div>
+  </div>
+  <div class="content">
+    Smart TVs in all bedrooms and living areas.<br>
+    Log into personal streaming accounts and remember to log out.
+  </div>
+
+</div>
+
+<script>
+function toggle(element) {
+  const content = element.nextElementSibling;
+  content.style.display = content.style.display === "block" ? "none" : "block";
+}
+</script>
+
+</body>
+</html>
